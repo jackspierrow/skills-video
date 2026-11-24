@@ -1,0 +1,4 @@
+interface:
+  display_name: "Connect ChatCut Desktop"
+  short_description: "Install ChatCut Desktop to edit or recreate videos."
+  default_prompt: "Install and connect ChatCut Desktop, then help me continue my video task."
