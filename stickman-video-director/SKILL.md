@@ -57,3 +57,112 @@
 ## 《电梯》v2 修订（2026-11-20 主人令两项一起做）
 - S6 重做：改用本片 S5/S2 的成品帧作参考图（不再用原作帧）+ 提示词明写「不要扁平极简卡通、要宽镜侧面构图」，新 S6 与前五场同档（锈墙细节、蹲放粉花、双人侧脸、结尾两盆花并排+暖光门缝全对版）。教训：同片返修定画风优先用本片已过关的帧当参考，比外部参考更贴。
 - BGM：本机无音乐生成工具，改用 numpy 纯合成（make_bgm.py 在 elevator 目录）：前 39.2 秒 D 小调悬疑（低音 drone+稀疏钢琴单音+远处八音盒泛音），39.2 秒起转 F 大调八音盒旋律+软钢琴和弦，转折点对齐 S5 真相揭晓；BGM 本体 -21.4 LUFS、混音后成片 -14.3 LUFS，旁白清楚。成品 elevator-final-v2.mp4（57.95s/23MB），v1 保留在 elevator-final.mp4。
+
+## 附录 A8 · 两份制作指南全文（2026-11-25 并入）
+
+说明：以下两份文件全文照录自 references/a8-production-guide.md 与 references/a8-summer-two-roles-prompts.md，内容未改动，仅作全文收录。合并 PDF（skill dari hextor）只收录 SKILL.md 正文，故将指南全文附于此，PDF 读者无需另取 references/。
+
+### 附录 A8-1 · a8-production-guide.md 全文
+
+# A8 吉卜力画风 · Studio Ghibli Style
+
+第一段默认在 Flow 用[固定人物与画风提示词](a8-summer-two-roles-prompts.md)纯文生。同场动作需要续拍时，用上一段的合格尾帧开启下一段。角色保持浅象牙色简单圆脸、两点小黑眼、一笔嘴、干净脸颊与细黑线身体。身份服饰、场景配色与动作随故事调整。
+
+## 画风参考
+
+- [海边信使样片截图](../assets/a8/coastal-courier-style.jpg)对照手绘街景和海天的纵深、清晰明暗、平涂角色和道具动作的可读性。[山地工坊样片截图](../assets/a8/mountain-workshop-style.jpg)对照木材笔触、室内外光影、地形层次和工作道具与人物的关系。
+- 从开头到结尾使用同一套二维赛璐珞画法。保留干净的墨线、角色平涂、背景的水粉干刷质感、清楚的色块与有方向的硬边阴影。用有用的前景、中景动作与远景变化建立空间。场景内选一两处能参与动作的细节，例如风带动棚布、信封和衣角，让画面有生活感。
+- 雨景、夜景和室内可以有自己的配色与光源。即使切换天气、时间或机位，人物和动作道具仍要从背景中读得清楚，背景细节与前中远景要有层次。两张样片截图用于核对画法。本片主角的长相和服饰由本片人物描述确定，站位和姿势随分镜变化。
+
+## 按四块写生成提示词
+
+1. **人物**　同一故事的每个主角镜头逐字复用同一人物段落，包含头形、五官、身线粗细、关节连接点和服饰识别特征。场景和动作另写。领口、外套和工具带应留出足够空间，让细线身体和关节在主要动作中可辨认。
+2. **画风与场景**　每个生成片段复用固定的画法与质感段落，再写该场景的主色块、光向、前中远景及可见的环境变化。让环境动作与人物任务有关，例如风先卷起信封，才引出伸手去接的动作。
+3. **站位与接触**　写清角色起点、工作区、可走的路线和道具位置。用斜侧全身或中远景先交代长桌、桌角和开放过道。人物沿可见过道绕过桌角，停稳后再伸手；需要从桌后出现时，明确遵守前后遮挡，直到走出桌沿。手应在明确的时刻接触道具，并随持握保持连续。
+4. **动作与镜头**　按时间写清触发、发力、接触、结果和收势。每个镜头围绕一个主要动作安排视线、重心和姿态变化，再选与动作有关的衣摆、领巾、工具或环境做跟随动作。写清它们什么时候动、朝哪里动、什么时候落下来。需要走位后拉绳或取物时，可拆为交代站位的全身镜头和手部特写。跨镜头保留动作方向、视线和道具状态。
+
+海边信使的写法示例。0–2 秒，镜头沿斜坡跟拍，棚布被风掀起，信使骑出阴影进入阳光。2–4 秒，前轮颠过石块，信封从挎包飞到空中。4–6 秒，沿着信封的方向切到侧面跟拍，信使一手扶车、一手接信，红领巾继续随同一股风摆动。其他场景按实际道具和环境设计自己的动作。
+
+## 片段续拍与角色参考图
+
+- **同场续拍**　按正常速度看完上一段原片，在拟保留区间的末尾选一帧。人物脸、身体连接、姿势、道具接触、光影和构图都要通过检查。原片最后一帧有拉扯、断肢或道具漂移时，往前选最近的合格帧，上段也剪到对应接点。将原画面单帧放入 Flow 的首帧输入，保留比例和构图。
+- **写下一段动作**　从该帧的站位、视线、手部接触、重心、道具运动与镜头方向继续写。例如上一段结束时信使刚夹住信封，下一段从手指收拢、前轮继续下坡、红领巾沿原风向摆动接起。生成前记录原片、取帧时间和输入方式，生成后复查接点是否停顿、动作重来、方向反转或道具跳位。拼接时剪去重复起始帧或多余停顿，并按正常速度复查两段衔接。
+- **独立新场景**　可用同一人物和画法段落重新文生，按新构图写场景和动作。主角在新构图或多人场景需要额外保持身份时，可用已确认的合格原片选帧，或与 A8 画法一致的生成图、用户提供的手绘图，作为可选的角色参考。角色参考只绑定到对应人物，明确记录参考版本。
+- 代码绘制的火柴人、SVG 骨架图和临时站姿示意图禁止作为角色参考或首帧提交，也不随 Skill 打包。随 Skill 收录的两张样片截图用于审片对照。
+
+## 多人镜头
+
+- 先标出主角、配角和背景人物。为配角安排不同的服饰标记、轮廓和站位，同一位配角跨镜头沿用自己的标记。主角保留定稿的头身比例和标志服饰。参考图只绑定到它对应的人物。
+- 写清谁从哪里进入、朝哪里看、谁持有什么道具，以及谁在前景或后景。比如主角走到门口并挥手，蓝帽配角负责扶门，窗内客人各自在桌边。需要交接时，给手部接触和道具易主一个清楚的动作。
+- 多人同框时把主动作留在清楚的轮廓上，让配角和环境承担反应。两人交错时明确前后遮挡。开门、让行、交接挤在一起而看不清时，可拆为连贯的全身镜头和动作特写。
+
+## 可复用的人物连续性提示
+
+```text
+Animate the hero as a hand-inked stick figure within the painted 2D cel scene.
+Use a plain ivory circle head with two tiny black dot eyes, one short mouth stroke and blank cheeks. Preserve that design through turns, changes in gaze and expression.
+The entire torso is one thin ink stroke, the same weight as the arms and legs. The top of the stroke touches the underside of the head. Both arms branch from the shoulder point. The two legs branch from a visible Y-shaped hip.
+Keep those connections continuous through the whole movement. Show the painted background between the limbs and keep the neck and hips readable against it.
+Keep the costume's identifying details and the main joints readable. Show anticipation, weight shifts and recovery, with fabric or props following the action where appropriate.
+Stage the performer and solid props on readable planes. Show the open walking path around furniture and the point where the hand touches a prop.
+```
+
+使用角色参考图的多人镜头可加上以下结构。按实际分镜填写人物、站位和动作。
+
+```text
+Use the attached character reference for [hero]. Keep the hero's face, thin limbs, proportions, and costume markers consistent through the shot.
+Give each supporting character distinct costume markers. [Hero] starts at [position] and [action]. [Supporting character] stays at [position] and [action]. The [prop] belongs to [character] until [visible handoff, if any]. Maintain the same character identities and foreground/background order through overlaps.
+```
+
+## MV 剪辑
+
+- 先在连续音乐轨上标出第一句人声、换句、重音与收束。生成前写清每个关键乐句对应的可见人物动作或反应，以及前后镜头怎样接上。尽早建立主角要做的事，在情绪转折和收束处看得见人物的选择与结果。关键停顿可以保留，让动作和音乐一起落下。
+- 以远景交代空间，用近景看清角色反应、道具或触碰。窗光、水面、布帘和蒸汽等环境变化要配合镜头里的动作与情绪，例如布帘被风掀开后露出一碗热汤。
+- 同一段人物动作可从通过验收的同一条原片取连续的两个区间，重新构图后用作反应镜头和更宽的后续镜头。剪完按正常速度检查动作是否跳回、乐句是否被切断。音乐沿用独立完整轨道，风声和动作音效按叙事需要另行混入。
+
+## 原始素材验收
+
+Flow 出片后，先以正常速度看完整原片，再逐帧检查转身、弯腰、迈步、伸手、人物交错和拟剪切点。按本片定稿的人物描述验收人物，使用过角色图的镜头也对照该图。在原片的起始、中段、末尾及切镜或场景变化处用 A8 样片截图和相邻镜头检查画风。用已确认的海边信使动态样片对照表演节奏。以下项目均通过的区间才可用。
+
+| 项目 | 通过标准 |
+| --- | --- |
+| 脸型 | 主角为浅象牙色简单圆脸、两个小黑点眼、一笔嘴，脸颊干净。眨眼和转头保持同一轮廓与五官画法。出现腮红、额外眉鼻、脸颊圈或五官漂移的区间退回。 |
+| 身体连接 | 头颈接到细线躯干，手臂从肩部连接，双腿接到髋部，发力时仍连续。合理遮挡前后保留同一结构。头颈、肩或髋可见断开、肢体缺失或增生、躯干变成实心粗块的区间退回。 |
+| 穿模与接触 | 脚在可走的地面或台阶上落地，绕开桌面和柜台，过门时保持正确遮挡。拿取、拉动与交接能看清接触点，持握后道具持续随手移动。穿过实物、滑脚、脱手悬浮或道具跳位的区间退回。 |
+| 动作表现 | 正常速度能看清视线、姿态或重心变化，以及关键动作的起势和结果。故事要求时，衣物、道具或环境有相应的跟随动作。主要动作像僵硬的平移、长时间站桩或多个部件同时摆动时退回。 |
+| 多人一致性 | 主角的脸、头身比例和服饰识别点保持稳定，配角的标记、动作与道具归属可辨。交错前后能追踪每个人。轻微衣摆或纹样差异可接受，前提是身份识别、动作与肢体连接都清楚。 |
+| 画风一致性 | 满幅手绘背景、平涂人物、墨线与干刷肌理一致，明暗分区清楚，前中远景有层次。可按场景变换颜色与光源。出现白边、明显的 3D 塑料质感、人形化身体，或一层灰绿雾抹平场景与人物轮廓的区间退回。 |
+
+- 对每条原片记录参考版本、检查区间和结果，失败时记录时间点及问题。以通过、退回、待查标明状态。可保留已通过且动作完整的区间。剪辑点以正常速度复查方向、接触和空间连续性。
+- 返修聚焦问题区间。脸或服饰漂移时先改清人物描述与出场安排，有连续性需要时再使用合格的手绘角色图。动作僵硬时补清触发、重心、动作结果和跟随时机。断开时先调整服饰遮挡和动作幅度，穿模时先明确走位、前后关系与接触点。画风偏移时对照样片重新写该场景的配色、光向和空间提示。保留已确认的画面，返修后复查问题区间和相邻剪辑点。成片上的补画或遮挡处理只计入那次剪辑修复，Flow 原片仍按实际表现记录。
+
+## 成片验收
+
+- 正常速度看完整成片。并排核对跨场景、跨光线的镜头，人物依然是同一套细线画法，画面仍有样片的手绘层次和清晰光影。每个切点检查动作方向、角色站位、道具状态与声音衔接。
+- 关键情节须由可见的人物动作、反应或互动推进。能看懂谁在做什么、哪里发生了变化、最后怎样收束。环境和道具特写可以交代空间、连接动作或给情绪留白。连续关键段落只有空景或道具，导致主角的任务或选择读不出来时退回。MV 还要核对动作与乐句、重拍或情绪转折的对应。
+
+### 附录 A8-2 · a8-summer-two-roles-prompts.md 全文
+
+# A8 吉卜力画风 · 夏日手绘色调试片
+
+Omni 1.2 Flash · 纯文生 · 720p · 6 秒 · 16:9
+
+独立新场景沿用以下人物与画法段落。同场续拍时，从上一段已通过的保留区间末尾取帧，用作下一段首帧。续写当时的道具状态、人物动作和镜头方向。详见 [A8 制作、原片及成片验收](a8-production-guide.md#片段续拍与角色参考图)。
+
+## 固定人物
+
+CHARACTER. One original hand-inked stick figure animated within the painted 2D scene. The head is a simple pale ivory circle, finely outlined in near-black ink. The only marks inside are two tiny solid black dot eyes and one short expressive black mouth stroke. Both cheeks are plain ivory, the same color as the forehead. No blush, cheek circles, freckles, nose, ears, or face shadows. Keep the round head design through turns and expressions. A slender connected ink-line neck, torso, arms and legs, tiny simple hands and narrow shoes. Compact workwear specific to the role leaves the limbs visible as the character shifts weight, acts and settles.
+
+## 固定画法与晴天色彩示例
+
+沿用二维墨线、平涂人物、水粉干刷、清晰硬边阴影、前中远景层次与满幅构图。下面的晴天色彩是已验证的场景示例，换天气、时段或地点时写对应的色块和光源。
+
+ART DIRECTION. Original full-bleed hand-inked 2D adventure animation, sunny painted summer colors. Deep cobalt sky, turquoise distance, sunlit buttercream surfaces, leafy greens, tiny vermilion accents, cool blue-violet cast shadows. Hand-painted gouache scenery with delicate dry-brush grain, legible silhouettes, hard-edged cel shadows on objects, flat unshaded face. Stage action on distinct foreground and distant planes with wind and gentle parallax. Edge-to-edge picture in every shot, no white margins, borders, panels, captions or text.
+
+## 山顶气象观测员
+
+SCENE AND ACTION. Mountain weather observer on a sunny ridge above a sea of clouds. Small navy peaked field cap, short field vest. An orange windsock snaps sideways in a gust. Start medium-wide, the observer braces on the timber deck, reaches up to free the snagged windsock cord; the sock fills and points downwind. Cut on the pull to a waist-up three-quarter view, the observer turns toward camera with a tiny satisfied smile. Keep the face clearly visible through the turn.
+
+## 海港修船匠
+
+SCENE AND ACTION. Harbor shipwright beside a vermilion wooden dinghy, sunlit quay, turquoise water reflecting moving light. Small navy knit cap, short blue canvas work apron. Start in a medium profile as the shipwright steadies a loose wooden peg, raises a small wooden mallet and taps it flush. Cut on impact to a waist-up three-quarter view; the shipwright lowers the mallet and turns toward camera with a tiny satisfied smile, boat bobbing behind. Keep the face clearly visible through the turn.
